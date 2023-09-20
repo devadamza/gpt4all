@@ -61,6 +61,7 @@ jobs:
             export PATH=$PATH:$HOME/Qt/Tools/QtInstallerFramework/4.6/bin
             ~/Qt/Tools/CMake/CMake.app/Contents/bin/cmake \
               -DCMAKE_GENERATOR:STRING=Ninja \
+              -DGPT4ALL_OFFLINE_INSTALLER=ON \
               -DCMAKE_BUILD_TYPE=Release \
               -DCMAKE_PREFIX_PATH:PATH=~/Qt/6.5.1/macos/lib/cmake/Qt6 \
               -DCMAKE_MAKE_PROGRAM:FILEPATH=~/Qt/Tools/Ninja/ninja \
@@ -112,7 +113,7 @@ jobs:
             mkdir build
             cd build
             mkdir upload
-            ~/Qt/Tools/CMake/bin/cmake -DCMAKE_BUILD_TYPE=Release -S ../gpt4all-chat -B .
+            ~/Qt/Tools/CMake/bin/cmake -DGPT4ALL_OFFLINE_INSTALLER=ON -DCMAKE_BUILD_TYPE=Release -S ../gpt4all-chat -B .
             ~/Qt/Tools/CMake/bin/cmake --build . --target all
             ~/Qt/Tools/CMake/bin/cmake --build . --target install
             ~/Qt/Tools/CMake/bin/cmake --build . --target package
